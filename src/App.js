@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  let todoListItems = [
+      'Laundry',
+      'Dishes',
+      'Sweep the floor',
+      'Feed my cats',
+      'Clean the shower',
+      'Random task A',
+      'Another task'
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ul>
+        {
+          // I can do JS here
+            todoListItems.map((item) => {
+              return (<li>{item}</li>)
+            })
+        }
+      </ul>
     </div>
   );
 }
