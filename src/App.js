@@ -1,5 +1,8 @@
 import './App.css';
 
+// two ways to declare a component, both will work
+// const App = () => { // inside of curly braces will remain the same }
+
 function App() {
     let todoListItems = [
         'Laundry',
@@ -24,6 +27,9 @@ function App() {
             </ul>
             {/* events must be camel cased */}
             <input
+                onMouseOver={(event) => {
+                    console.log('moused over!')
+                }}
                 onChange={(event) => {
                     console.log(event.target.value)
                 }}
