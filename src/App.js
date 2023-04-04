@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import ListItem from "./ListItem";
 
 function App() {
     const [userEnteredTodo, setUserEnteredTodo] = React.useState("");
@@ -20,7 +21,12 @@ function App() {
             <ul>
                 {
                     listItems.map((item, index) => {
-                        return (<li key={index}>{item}</li>)
+                        return (
+                            <ListItem
+                                key={index}
+                                item={item}
+                            />
+                        )
                     })
                 }
             </ul>
@@ -39,9 +45,10 @@ function App() {
                 onClick={() => {
                     saveItemAndClearInput()
                 }}
-            >Add</button>
+            >Add
+            </button>
         </div>
     );
 }
 
-export default App;
+    export default App;
