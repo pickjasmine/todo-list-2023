@@ -25,6 +25,9 @@ function App() {
                             <ListItem
                                 key={index}
                                 item={item}
+                                index={index}
+                                listItems={listItems}
+                                setListItems={setListItems}
                             />
                         )
                     })
