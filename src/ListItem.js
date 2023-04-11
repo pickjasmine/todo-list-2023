@@ -3,6 +3,7 @@ import "./ListItem.css"
 
 const ListItem = (props) => {
     const {item, index, listItems, setListItems} = props;
+    const [showDeleteButton, setShowDeleteButton] = React.useState(false);
 
     const removeListItem = (index) => {
         setListItems([
@@ -12,14 +13,29 @@ const ListItem = (props) => {
 
     }
 
+    const handleMouseEnter = () => {
+        setShowDeleteButton(true);
+    }
+
+    const handleMouseLeave = () => {
+        setShowDeleteButton(false);
+    }
+
     return (
-        <li>
+        <li
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
             <div>{item}</div>
-            <button onClick={() => {
-                removeListItem(index)
-            }}>
-                Delete
-            </button>
+            {
+                showDeleteButton ?
+                    <button onClick={() => {
+                        removeListItem(index)
+                    }}>
+                        Delete
+                    </button>
+                    : null
+            }
         </li>
     )
 }
